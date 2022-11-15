@@ -1,0 +1,11 @@
+ [Unit]
+ Description=Garage temperature and humidity monitoring
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ User=gery
+ ExecStart=/usr/bin/python /data/scripts/mariadb_temp.py > /data/logs/mariadb_temp.log 2>$1
+
+ [Install]
+ WantedBy=multi-user.target
