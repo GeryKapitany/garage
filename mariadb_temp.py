@@ -32,7 +32,6 @@ while True:
     now = datetime.datetime.utcnow()
     humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN)
     if humidity is not None and temperature is not None:
-        #print("Temp={0:0.0f}°C Humidity={1:0.0f}%".format(temperature, humidity))
 
         # Insert into DB
         try:
@@ -40,9 +39,6 @@ while True:
         except mariadb.Error as e:
             print(f"Error: {e}")
         conn.commit()
-
-    #else:
-        #print("Sensor failure. Check wiring.");
 
     time.sleep(3);
 
