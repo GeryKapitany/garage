@@ -1,2 +1,2 @@
 # garage
-Garage manager for school project
+Garage monitoring for school project
