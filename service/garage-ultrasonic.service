@@ -1,0 +1,14 @@
+[Unit]
+Description=Garage ultrasonic sensor
+After=multi-user.target
+
+[Service]
+Type=idle
+User=gery
+ExecStart=/usr/bin/python /data/scripts/ultrasonic.py > /data/logs/ultrasonic.log 2>$1
+TimeoutStartSec=10
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

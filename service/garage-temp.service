@@ -1,11 +1,15 @@
- [Unit]
- Description=Garage temperature and humidity monitoring
- After=multi-user.target
+[Unit]
+Description=Garage temperature and humidity monitoring
+After=multi-user.target
+BindsTo=docker.service
 
- [Service]
- Type=idle
- User=gery
- ExecStart=/usr/bin/python /data/scripts/mariadb_temp.py > /data/logs/mariadb_temp.log 2>$1
+[Service]
+Type=idle
+User=gery
+ExecStart=/usr/bin/python /data/scripts/mariadb_temp.py > /data/logs/mariadb_temp.log 2>$1
+TimeoutStartSec=10
+Restart=always
+RestartSec=30
 
- [Install]
- WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
