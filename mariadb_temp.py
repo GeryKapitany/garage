@@ -28,7 +28,7 @@ except mariadb.Error as e:
 cur = conn.cursor()
 
 while True:
-    # Readin from sensor
+    # Reading from sensor
     now = datetime.datetime.utcnow()
     humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN)
     if humidity is not None and temperature is not None:
